@@ -26,7 +26,7 @@ function getGame(id) {
     type: 'GET'
   }).done( function(game) {
     if (editingGame) {
-      var li = $("[data-id='" + id + "'")
+      var li = $("[data-id='" + id + "']").parent()
       $(li).replaceWith(game)
       editingGame = null;
     } else {
@@ -42,7 +42,7 @@ $(document).ready( function() {
       url: '/games/' + id,
       type: 'DELETE'
     }).done( function() {
-      var row = $("[data-id='" + id + "'")
+      var row = $("[data-id='" + id + "']")
       row.parent().remove('li')
     });
   });
@@ -100,6 +100,3 @@ $(document).ready( function() {
     });
   });
 });
-
-
-
